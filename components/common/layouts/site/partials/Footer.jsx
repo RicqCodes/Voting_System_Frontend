@@ -1,4 +1,5 @@
 import { flex } from "@/styles/css.utils.styled";
+import { device } from "@/styles/utils.styled";
 import styled from "styled-components";
 
 const Footer = () => {
@@ -29,6 +30,12 @@ const FooterContainer = styled.div`
       right: -30px;
       font-size: 36px;
       color: red;
+
+      ${() => device.down("sm")} {
+        span {
+          position: relative;
+        }
+      }
     }
   }
 `;
