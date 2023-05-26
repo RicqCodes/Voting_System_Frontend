@@ -27,12 +27,14 @@ import useToggle from "@/utils/hooks/useToggle";
 import { device } from "@/styles/utils.styled";
 import { ethers } from "ethers";
 import Link from "next/link";
+import ConnectWallet from "@/components/pages/ConnectWallet";
 
 const Header = () => {
   const { EOA } = useSelector((state) => state.app);
   const [balance, setBalance] = useState(false);
   const [walletEntry, { isLoading: walletLoading }] = useWalletEntryMutation();
   const [skip, setSkip] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const { toggle, toggleRef, toggledElementRef, handleToggle } = useToggle();
   const { isLoading, data } = useGetUserAccountQuery(EOA, {
@@ -42,6 +44,8 @@ const Header = () => {
   // Handle connect wallet
   const handleWalletConnect = async () => {
     const wallet = await connectWallet();
+    console.log(wallet);
+    if (wallet.startsWith("https")) return;
     dispatch(updateEOA(ethers.getAddress(wallet)));
   };
 
@@ -88,56 +92,59 @@ const Header = () => {
   }, [dispatch]);
 
   return (
-    <HeaderContainer>
-      <Logo />
-      {data !== undefined && EOA !== null ? (
-        <ConnectedWallet>
-          <Image
-            ref={toggledElementRef}
-            alt="display image"
-            onClick={handleToggle}
-          >
-            <img src={data?.photoUrl} alt="logo" />
-          </Image>
-          <p>{shortenAddress(EOA)}</p>
-          {toggle && (
-            <DropDown ref={toggleRef}>
-              <div>
-                <BsPerson />
-                <p>{balance} ETH</p>
-              </div>
-              <div>
-                <MdDocumentScanner />
-                <p onClick={handleToggle}>
-                  <Link href="/my-proposals">My Proposals</Link>
-                </p>
-              </div>
-              <a
-                onClick={handleToggle}
-                href={`https://sepolia.etherscan.io/address/${EOA}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <BsLink45Deg />
-                <p>Etherscan</p>
-              </a>
-              <div onClick={() => copyToClipboard(EOA)}>
-                <BiCopyAlt />
-                <p>Copy Address</p>
-              </div>
-              <div onClick={handleWalletDisconnect}>
-                <AiOutlinePoweroff />
-                <p>Disconnect</p>
-              </div>
-            </DropDown>
-          )}
-        </ConnectedWallet>
-      ) : (
-        <Button $size="sm" onClick={handleWalletConnect}>
-          Connect Wallet
-        </Button>
-      )}
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <Logo />
+        {data !== undefined && EOA !== null ? (
+          <ConnectedWallet>
+            <Image
+              ref={toggledElementRef}
+              alt="display image"
+              onClick={handleToggle}
+            >
+              <img src={data?.photoUrl} alt="logo" />
+            </Image>
+            <p>{shortenAddress(EOA)}</p>
+            {toggle && (
+              <DropDown ref={toggleRef}>
+                <div>
+                  <BsPerson />
+                  <p>{balance} ETH</p>
+                </div>
+                <div>
+                  <MdDocumentScanner />
+                  <p onClick={handleToggle}>
+                    <Link href="/my-proposals">My Proposals</Link>
+                  </p>
+                </div>
+                <a
+                  onClick={handleToggle}
+                  href={`https://sepolia.etherscan.io/address/${EOA}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <BsLink45Deg />
+                  <p>Etherscan</p>
+                </a>
+                <div onClick={() => copyToClipboard(EOA)}>
+                  <BiCopyAlt />
+                  <p>Copy Address</p>
+                </div>
+                <div onClick={handleWalletDisconnect}>
+                  <AiOutlinePoweroff />
+                  <p>Disconnect</p>
+                </div>
+              </DropDown>
+            )}
+          </ConnectedWallet>
+        ) : (
+          <Button $size="sm" onClick={() => setIsOpen(true)}>
+            Connect Wallet
+          </Button>
+        )}
+      </HeaderContainer>
+      {isOpen && <ConnectWallet setIsOpen={setIsOpen} />}
+    </>
   );
 };
 

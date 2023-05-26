@@ -173,7 +173,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     span {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     small {

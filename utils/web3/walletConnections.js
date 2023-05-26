@@ -9,11 +9,11 @@ const { provider } = init();
 
 export const connectWallet = async () => {
   try {
+    console.log("Hit the button");
     if (!window.ethereum) {
       // MetaMask extension not available, provide download link
       return "https://metamask.io/download.html";
     }
-
     // Prompt user to connect their wallet
     const accounts = await provider.send("eth_requestAccounts");
     const selectedAccount = accounts[0];

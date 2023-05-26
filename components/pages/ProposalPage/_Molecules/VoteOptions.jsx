@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import styled from "styled-components";
 
+import { fadein, popup } from "@/styles/animation.styled";
+
 import { flex } from "@/styles/css.utils.styled";
 
 const VoteOptions = ({ pid, setIsOpen, handleVote }) => {
@@ -26,7 +28,7 @@ const VoteOptions = ({ pid, setIsOpen, handleVote }) => {
       <OptionBox>
         <Heading>
           <div>
-            <h3>How would you like to vote for</h3>
+            <h3>How would you like to vote</h3>
             <code>{pid}</code>
           </div>
           <div></div>
@@ -69,22 +71,25 @@ const OptionsWrapper = styled.div`
   height: 100vh;
   ${() => flex({ ai: "center", jc: "center" })};
   padding: 24px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 999;
+  animation: ${fadein} 0.3s linear;
 `;
 
 const OptionBox = styled.div`
   max-width: 650px;
-  width: 100%;
+  width: 96%;
   background-color: black;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   border-radius: var(--border-radius);
   padding: 24px 0;
+  animation: ${popup} 0.2s linear;
 `;
 
 const Heading = styled.div`
   width: 100%;
+  padding: 0 24px;
   ${() => flex({ ai: "center", jc: "center", fd: "column", gap: "18px" })};
 
   > div:first-child {
