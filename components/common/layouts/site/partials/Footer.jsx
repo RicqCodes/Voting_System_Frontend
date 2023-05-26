@@ -26,14 +26,14 @@ const FooterContainer = styled.div`
 
     span {
       position: absolute;
-      top: -15px;
+      top: -6px;
       right: -30px;
       font-size: 36px;
       color: red;
 
       ${() => device.down("sm")} {
         right: -42px;
-        font-size: 24px;
+        font-size: 22px;
       }
     }
   }
