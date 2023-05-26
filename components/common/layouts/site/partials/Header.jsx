@@ -15,7 +15,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { updateEOA } from "@/setup/redux/slices/appSlice";
 import {
-  useGetUserAccountQuery,
+  useLazyGetUserAccountQuery,
   useWalletEntryMutation,
 } from "@/setup/redux/api/api";
 import {
@@ -33,21 +33,10 @@ const Header = () => {
   const { EOA } = useSelector((state) => state.app);
   const [balance, setBalance] = useState(false);
   const [walletEntry, { isLoading: walletLoading }] = useWalletEntryMutation();
-  const [skip, setSkip] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const { toggle, toggleRef, toggledElementRef, handleToggle } = useToggle();
-  const { isLoading, data } = useGetUserAccountQuery(EOA, {
-    skip,
-  });
-
-  // Handle connect wallet
-  // const handleWalletConnect = async () => {
-  //   const wallet = await connectWallet();
-  //   console.log(wallet);
-  //   if (wallet.startsWith("https")) return;
-  //   dispatch(updateEOA(ethers.getAddress(wallet)));
-  // };
+  const [getUserAccount, { isLoading, data }] = useLazyGetUserAccountQuery();
 
   // Handle wallet disconnect
   const handleWalletDisconnect = () => {
@@ -57,7 +46,6 @@ const Header = () => {
   // Use Effect to handle on page reload to keep user signed in in the UI
   useEffect(() => {
     const recallConnectWallet = async () => {
-      // const wallet = await connectWallet();
       const wallet = window.ethereum?.selectedAddress;
       if (!wallet) return;
       dispatch(updateEOA(ethers.getAddress(wallet)));
@@ -65,8 +53,6 @@ const Header = () => {
       setBalance(balance);
     };
     recallConnectWallet();
-
-    (EOA !== undefined || EOA !== null) && setSkip((prev) => !prev);
   }, [EOA, dispatch]);
 
   // Use Effect to handle on account change.
@@ -90,6 +76,10 @@ const Header = () => {
       window.ethereum?.removeListener("accountsChanged", handleAccountChange);
     };
   }, [dispatch]);
+
+  useEffect(() => {
+    EOA && getUserAccount(EOA);
+  }, [EOA]);
 
   return (
     <>

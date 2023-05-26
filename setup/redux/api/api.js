@@ -315,7 +315,7 @@ export const proposalApi = createApi({
 export const {
   useWalletEntryMutation,
   useCreateProposalMutation,
-  useGetUserAccountQuery,
+  useLazyGetUserAccountQuery,
   useGetUserVotePerProposalQuery,
   useGetAllProposalQuery,
   useGetProposalQuery,
