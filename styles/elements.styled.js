@@ -27,6 +27,7 @@ export const Button = styled.button`
   font-weight: 500;
   text-transform: uppercase;
   transition: ease-out 0.3s;
+  color: #fff;
   width: ${({ $fullWidth }) => $fullWidth && "100%"};
 
   /* Elevation */
