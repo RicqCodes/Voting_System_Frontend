@@ -33,6 +33,7 @@ const FooterContainer = styled.div`
 
       ${() => device.down("sm")} {
         right: -42px;
+        font-size: 24px;
       }
     }
   }
