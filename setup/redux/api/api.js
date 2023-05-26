@@ -48,7 +48,7 @@ export const proposalApi = createApi({
             bio: "Hey there, i am here to create proposal",
           });
 
-          return true;
+          return { data: true };
         } else return { data: docSnap.data() };
       },
       invalidatesTags: ["userWallet"],

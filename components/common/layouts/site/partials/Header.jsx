@@ -42,12 +42,12 @@ const Header = () => {
   });
 
   // Handle connect wallet
-  const handleWalletConnect = async () => {
-    const wallet = await connectWallet();
-    console.log(wallet);
-    if (wallet.startsWith("https")) return;
-    dispatch(updateEOA(ethers.getAddress(wallet)));
-  };
+  // const handleWalletConnect = async () => {
+  //   const wallet = await connectWallet();
+  //   console.log(wallet);
+  //   if (wallet.startsWith("https")) return;
+  //   dispatch(updateEOA(ethers.getAddress(wallet)));
+  // };
 
   // Handle wallet disconnect
   const handleWalletDisconnect = () => {
