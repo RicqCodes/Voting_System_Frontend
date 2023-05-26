@@ -32,9 +32,7 @@ const FooterContainer = styled.div`
       color: red;
 
       ${() => device.down("sm")} {
-        span {
-          position: relative;
-        }
+        right: -42px;
       }
     }
   }

@@ -56,6 +56,10 @@ const CardContainer = styled.div`
       color: #fff;
     }
   }
+
+  h3 {
+    text-align: center;
+  }
 `;
 
 const Description = styled.div`
