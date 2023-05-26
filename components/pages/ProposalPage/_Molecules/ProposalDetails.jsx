@@ -160,7 +160,7 @@ const ProposalDetails = ({ proposal }) => {
 
   return (
     <>
-      {winner.length > 0 && EOA.length > 0 && proposal ? (
+      {winner?.length > 0 && EOA?.length > 0 && proposal ? (
         <>
           <DetailsContainer>
             <VotingDetails>

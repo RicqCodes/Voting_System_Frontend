@@ -53,7 +53,7 @@ const ConnectWalletMetamask = ({ setIsOpen }) => {
                 <Wallet
                   onClick={() => {
                     handleWalletConnect().then((res) => {
-                      if (!res) return;
+                      if (res === false) return;
                       setIsOpen(false);
                     });
                   }}
