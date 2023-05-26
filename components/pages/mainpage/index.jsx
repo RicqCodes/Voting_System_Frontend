@@ -4,6 +4,7 @@ import { HiViewGrid } from "react-icons/hi";
 
 import { flex } from "@/styles/css.utils.styled";
 import VoteSelectCard from "./_molecules/VoteSelectCard";
+import { device } from "@/styles/utils.styled";
 
 const MainPage = () => {
   return (
@@ -57,6 +58,11 @@ const Heading = styled.div`
   width: 75%;
   margin: auto;
   ${() => flex({ ai: "center", jc: "space-between" })};
+
+  ${() => device.down("sm")} {
+    width: 100%;
+    ${() => flex({ fd: "column-reverse", gap: "24px" })};
+  }
 
   > p:first-child {
     padding: 10px;
