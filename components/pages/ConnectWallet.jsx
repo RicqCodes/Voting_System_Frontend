@@ -22,8 +22,7 @@ const ConnectWalletMetamask = ({ setIsOpen }) => {
     if (wallet?.startsWith("https")) {
       setIsMetamask(wallet);
       return false;
-    }
-    if (wallet === undefined) {
+    } else if (wallet === undefined) {
       return false;
     }
     dispatch(updateEOA(ethers.getAddress(wallet)));
