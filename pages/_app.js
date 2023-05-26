@@ -11,6 +11,7 @@ import { store } from "@/setup/redux/store";
 const App = ({ Component, pageProps }) => {
   return (
     <>
+      <ScrollToTop />
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
@@ -20,7 +21,6 @@ const App = ({ Component, pageProps }) => {
             ) : (
               <Component {...pageProps} />
             )}
-            <ScrollToTop />
           </IconContext.Provider>
         </ThemeProvider>
         <Toaster />

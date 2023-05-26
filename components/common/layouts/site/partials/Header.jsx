@@ -54,7 +54,7 @@ const Header = () => {
   useEffect(() => {
     const recallConnectWallet = async () => {
       // const wallet = await connectWallet();
-      const wallet = window.ethereum.selectedAddress;
+      const wallet = window.ethereum?.selectedAddress;
       if (!wallet) return;
       dispatch(updateEOA(ethers.getAddress(wallet)));
       const balance = await getEthBalance(wallet);
@@ -79,11 +79,11 @@ const Header = () => {
     };
 
     // Subscribe to the 'accountsChanged' event
-    window.ethereum.on("accountsChanged", handleAccountChange);
+    window.ethereum?.on("accountsChanged", handleAccountChange);
 
     // Clean up the subscription when the component unmounts
     return () => {
-      window.ethereum.removeListener("accountsChanged", handleAccountChange);
+      window.ethereum?.removeListener("accountsChanged", handleAccountChange);
     };
   }, [dispatch]);
 
@@ -133,7 +133,9 @@ const Header = () => {
           )}
         </ConnectedWallet>
       ) : (
-        <Button onClick={handleWalletConnect}>Connect Wallet</Button>
+        <Button $size="sm" onClick={handleWalletConnect}>
+          Connect Wallet
+        </Button>
       )}
     </HeaderContainer>
   );
