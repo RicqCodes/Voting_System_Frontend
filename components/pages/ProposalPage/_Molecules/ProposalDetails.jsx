@@ -26,6 +26,7 @@ import {
 import Countdown from "../../_molecules/Countdown";
 import DetailSkeleton from "../../_molecules/Skeleton/DetailsSkeleton";
 import VoteOptions from "./VoteOptions";
+import { connectWallet } from "@/utils/web3/walletConnections";
 
 const ProposalDetails = ({ proposal }) => {
   const { query } = useRouter();
@@ -146,6 +147,24 @@ const ProposalDetails = ({ proposal }) => {
   useEffect(() => {
     if (pid && !proposal?.isOpened) getVoteEventsForProposal(pid);
   }, [pid]);
+
+  useEffect(() => {
+    const connect = async () => {
+      if (EOA === null) {
+        const res = await connectWallet();
+        res.startsWith("https") &&
+          toast(`Please install metamask and connect to view content`, {
+            style: {
+              background: "#000",
+              border: "1px solid #fff",
+              color: "#fff",
+            },
+            position: "top-center",
+          });
+      }
+    };
+    connect();
+  }, []);
 
   winner =
     allVotes && findArrayWithHighestLength(allVotes).key === "yesVotes"
