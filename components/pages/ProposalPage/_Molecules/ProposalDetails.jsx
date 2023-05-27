@@ -377,7 +377,7 @@ const TimeStampsContainer = styled.div`
     ${() => flex({ gap: "8px", fd: "column" })};
 
     p {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(var(--foreground-rgb), 0.6);
     }
   }
 `;
@@ -396,12 +396,12 @@ const Action = styled.div`
   }
 
   button {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(var(--foreground-rgb), 0.1);
   }
 
   .countdown {
     padding: 12px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(var(--foreground-rgb), 0.3);
     border-radius: var(--border-radius);
     display: ${() => flex({ ai: "center", jc: "center" })};
   }
@@ -409,6 +409,6 @@ const Action = styled.div`
 
 const Halt = styled(Button)`
   background-color: red !important;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(var(--foreground-rgb), 0.2);
   height: 40.5px;
 `;
