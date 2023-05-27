@@ -13,7 +13,15 @@ const MainPage = () => {
         <p>Let's help you make decisions</p>
         <p>
           <span>Created By </span>
-          <code>Ricqcodes</code>
+          <code>
+            <a
+              href="httsp://github.com/ricqcodes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ricqcodes
+            </a>
+          </code>
         </p>
       </Heading>
       <Container>

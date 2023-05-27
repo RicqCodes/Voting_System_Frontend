@@ -96,7 +96,7 @@ const ModalOverlay = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(var(--background-end-rgb), 0.4);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -130,6 +130,7 @@ const ModalHeader = styled.div`
 
 const ModalBody = styled.div`
   margin-top: 18px;
+  color: rgb(var(--foreground-rgb));
 `;
 
 const ModalFooter = styled.div`

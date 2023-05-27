@@ -71,7 +71,7 @@ const OptionsWrapper = styled.div`
   height: 100vh;
   ${() => flex({ ai: "center", jc: "center" })};
   padding: 24px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(var(--foreground-rgb), 0.4);
   z-index: 999;
   animation: ${fadein} 0.3s linear;
 `;
@@ -81,7 +81,7 @@ const OptionBox = styled.div`
   width: 96%;
   background-color: black;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  color: rgb(var(--background-end-rgb));
   border-radius: var(--border-radius);
   padding: 24px 0;
   animation: ${popup} 0.2s linear;
