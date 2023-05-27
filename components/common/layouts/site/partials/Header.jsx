@@ -183,11 +183,16 @@ const DropDown = styled.div`
   position: absolute;
   top: 64px;
   left: -36px;
-  background: black;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
   max-width: 480px;
   width: 100%;
   padding: 12px 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgb(var(--callout-border-rgb));
   border-radius: var(--border-radius);
 
   ${() => device.down("xxs")} {

@@ -6,6 +6,7 @@ import Nodata from "./Nodata";
 import CardSkeleton from "./Skeleton/CardSkeleton";
 import { useLazyGetVoteEventsForProposalQuery } from "@/setup/redux/api/api";
 import { useEffect } from "react";
+import { device } from "@/styles/utils.styled";
 
 const ProposalStats = ({ className, heading, proposals }) => {
   return (
@@ -50,10 +51,14 @@ const Container = styled.div`
   width: 100%;
   ${() => flex({ gap: "32px", ai: "center", fw: "wrap" })};
 
-  ${() => flex({ gap: "32px", ai: "center", fw: "wrap", jc: "center" })};
+  ${() => flex({ gap: "32px", ai: "center", fw: "wrap" })};
 
   p,
   svg {
     font-size: 14px;
+  }
+
+  ${() => device.down("sm")} {
+    ${() => flex({ gap: "32px", ai: "center", fw: "wrap", jc: "center" })};
   }
 `;
