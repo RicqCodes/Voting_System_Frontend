@@ -50,6 +50,8 @@ const Container = styled.div`
   width: 100%;
   ${() => flex({ gap: "32px", ai: "center", fw: "wrap" })};
 
+  ${() => flex({ gap: "32px", ai: "center", fw: "wrap", jc: "center" })};
+
   p,
   svg {
     font-size: 14px;
