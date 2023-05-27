@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { TfiAngleRight } from "react-icons/tfi";
 
@@ -58,7 +59,7 @@ const ConnectWalletMetamask = ({ setIsOpen }) => {
                   }}
                 >
                   <div>
-                    <img src={metamaskLogo} alt="" />
+                    <Image src={metamaskLogo} alt="" />
                     <span>
                       <strong>Metamask</strong>
                     </span>
