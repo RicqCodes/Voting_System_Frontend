@@ -139,7 +139,7 @@ const InputFieldWrapper = styled.div`
           border: ${({ $disabled }) =>
             $disabled
               ? `1px solid ${color("secondary", 20)}`
-              : `1px solid #fff`};
+              : `1px solid rgb(var(--card-border-rgb))`};
           color: ${({ $disabled }) =>
             $disabled ? color("secondary", 50) : color("secondary", 90)};
         `;

@@ -61,8 +61,6 @@ const Form = () => {
       }
     }
 
-    console.log("What the fuck");
-
     await toast.promise(
       createProposal({
         title,
@@ -171,7 +169,8 @@ const FormContainer = styled.form`
   padding: 24px;
   background: var(--secondary-glow);
   ${() => flex({ fd: "column", gap: "32px" })};
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  border: 1px solid rgb(var(--callout-border-rgb));
   border-radius: var(--border-radius);
 `;
 

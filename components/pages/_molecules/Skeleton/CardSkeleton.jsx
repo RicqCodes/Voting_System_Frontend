@@ -54,8 +54,8 @@ const SkeletonWrapper = styled.div`
   max-width: 320px;
   width: 100%;
   padding: 24px;
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* background: #000; */
+  border: 2px solid rgba(var(--card-border-rgb), 0.15);
   border-radius: var(--border-radius);
   ${() => flex({ fd: "column", ai: "center", jc: "center", gap: "18px" })};
 

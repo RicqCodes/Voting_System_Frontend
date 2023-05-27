@@ -82,7 +82,6 @@ const Heading = styled.div`
       padding: 6px;
       font-size: 18px;
       background: var(--primary-glow);
-      /* border-radius: var(--border-radius); */
     }
   }
 `;

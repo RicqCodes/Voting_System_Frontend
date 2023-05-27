@@ -145,7 +145,12 @@ const HeaderContainer = styled.div`
   height: 65px;
   position: sticky;
   top: 0;
-  background-color: black;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
   z-index: 99;
   ${() => flex({ ai: "center", jc: "space-between" })}
 `;

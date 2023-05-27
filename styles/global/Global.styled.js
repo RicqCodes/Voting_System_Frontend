@@ -47,8 +47,8 @@ export const GlobalStyles = createGlobalStyle`
 	--angle: 90deg;
 	--gradX: 100%;
 	--gradY: 50%;
-	--c1: rgba(168, 239, 255, 1);
-	--c2: rgba(168, 239, 255, 0.1);
+	--c1: rgba(0, 0, 100, 1);
+	--c2: rgba(0, 0, 100, 0.1);
 }
 
 @property --angle {
@@ -94,13 +94,20 @@ export const GlobalStyles = createGlobalStyle`
       #ffffff10,
       #ffffff80
     );
-
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
-  }
+    --d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(168, 239, 255, 1);
+	--c2: rgba(168, 239, 255, 0.1);
 }
+  }
+  
+
     /* Resets */
     
     html {
@@ -137,7 +144,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     a {
-        color: initial;
+      color: rgb(var(--foreground-rgb));
         text-decoration: none;
 
         &:hover, 

@@ -35,7 +35,7 @@ const CardContainer = styled.div`
   padding: 48px 24px;
   border-radius: var(--border-radius);
   border: 2px solid transparent;
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(var(--card-border-rgb));
   transition: border-color 0.5s;
   cursor: pointer;
 
