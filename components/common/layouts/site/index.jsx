@@ -27,12 +27,13 @@ export const getAppLayout = (page) => {
 const LayoutWrapper = styled.div`
   max-width: var(--max-width);
   width: 100%;
-  padding: 0 24px;
+  /* padding: 0 24px; */
   margin: 0 auto;
   height: 100vh;
   /* position: relative; */
 
   > main {
     min-height: 75vh;
+    padding: 0 24px;
   }
 `;

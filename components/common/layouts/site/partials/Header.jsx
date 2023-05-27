@@ -143,6 +143,7 @@ export default Header;
 const HeaderContainer = styled.div`
   width: 100%;
   height: 65px;
+  padding: 0 24px;
   position: sticky;
   top: 0;
   background: linear-gradient(
