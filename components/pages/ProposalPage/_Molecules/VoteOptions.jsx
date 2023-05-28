@@ -71,7 +71,7 @@ const OptionsWrapper = styled.div`
   height: 100vh;
   ${() => flex({ ai: "center", jc: "center" })};
   padding: 24px;
-  background-color: rgba(var(--foreground-rgb), 0.4);
+  background-color: rgba(var(--background-start-rgb), 0.4);
   z-index: 999;
   animation: ${fadein} 0.3s linear;
 `;
@@ -80,8 +80,9 @@ const OptionBox = styled.div`
   max-width: 650px;
   width: 96%;
   background-color: black;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgb(var(--background-end-rgb));
+  background: rgb(var(--background-start-rgb));
+  border: 1px solid rgba(var(--foreground-rgb), 0.3);
+  /* color: rgb(var(--background-end-rgb)); */
   border-radius: var(--border-radius);
   padding: 24px 0;
   animation: ${popup} 0.2s linear;
@@ -100,12 +101,12 @@ const Heading = styled.div`
       font-size: 14px;
       font-style: italic;
       font-weight: 100;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(var(--foreground-rgb), 0.5);
     }
   }
   > div:last-child {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(var(--foreground-rgb), 0.1);
     height: 3px;
   }
 `;
@@ -118,7 +119,7 @@ const Body = styled.div`
   > div {
     width: 100%;
     padding: 14px 24px;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(var(--foreground-rgb), 0.07);
     cursor: pointer;
   }
 `;

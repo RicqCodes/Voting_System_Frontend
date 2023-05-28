@@ -97,7 +97,7 @@ const ModalOverlay = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(var(--background-end-rgb), 0.4);
+  background-color: rgba(var(--background-start-rgb), 0.4);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -112,8 +112,8 @@ const ModalContainer = styled.div`
   max-height: 600px;
   overflow: auto;
   border-radius: 8px;
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgb(var(--background-start-rgb));
+  border: 1px solid rgba(var(--foreground-rgb), 0.3);
   padding: 24px;
   animation: ${popup} 0.2s linear;
 `;
@@ -163,7 +163,7 @@ const Wallet = styled.div`
   justify-content: space-between;
   padding: 12px 18px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: rgba(var(--foreground-rgb), 0.16);
   cursor: pointer;
 
   > div {
