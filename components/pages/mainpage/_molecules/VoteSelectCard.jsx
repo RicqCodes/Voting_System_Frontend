@@ -51,12 +51,6 @@ const CardContainer = styled.div`
     animation: ${BorderRotate} var(--d) linear infinite forwards;
   }
 
-  button {
-    a {
-      color: #fff;
-    }
-  }
-
   h3 {
     text-align: center;
   }
