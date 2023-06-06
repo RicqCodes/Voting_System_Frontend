@@ -265,10 +265,17 @@ const ProposalDetails = ({ proposal }) => {
                       </div>
                     ) : (
                       <Button
-                        disabled={!proposal?.[2]}
+                        disabled={
+                          !proposal?.[2] ||
+                          convertCurrentTimeToTimestamp() >
+                            proposal?.endingTimestamp
+                        }
                         onClick={() => setIsOpen(true)}
                       >
-                        Vote
+                        {convertCurrentTimeToTimestamp() >
+                        proposal?.endingTimestamp
+                          ? "Ended"
+                          : "Vote"}
                       </Button>
                     )}
                   </>
