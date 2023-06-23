@@ -146,13 +146,14 @@ const ProposalDetails = ({ proposal }) => {
 
   useEffect(() => {
     if (pid && !proposal?.isOpened) getVoteEventsForProposal(pid);
-  }, [pid]);
+  }, [pid, EOA]);
 
   useEffect(() => {
     const connect = async () => {
       if (EOA === null) {
         const res = await connectWallet();
-        res.startsWith("https") &&
+        console.log(res);
+        res?.startsWith("https") &&
           toast(`Please install metamask and connect to view content`, {
             style: {
               background: "#000",
@@ -164,7 +165,7 @@ const ProposalDetails = ({ proposal }) => {
       }
     };
     connect();
-  }, []);
+  }, [EOA]);
 
   winner =
     allVotes && findArrayWithHighestLength(allVotes).key === "yesVotes"
@@ -176,7 +177,9 @@ const ProposalDetails = ({ proposal }) => {
       : allVotes === undefined
       ? ""
       : "No votes";
-
+  console.log(winner?.length);
+  console.log(EOA?.length);
+  console.log(proposal);
   return (
     <>
       {winner?.length > 0 && EOA?.length > 0 && proposal ? (

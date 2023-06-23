@@ -319,6 +319,7 @@ export const {
   useGetUserVotePerProposalQuery,
   useGetAllProposalQuery,
   useGetProposalQuery,
+  useLazyGetProposalQuery,
   useVoteProposalMutation,
   useGetUsersProposalQuery,
   useLazyGetVoteEventsForProposalQuery,

@@ -10,7 +10,6 @@ const { provider } = init();
 export const connectWallet = async () => {
   try {
     if (!window.ethereum) {
-      console.log("the aas");
       // MetaMask extension not available, provide download link
       return "https://metamask.io/download.html";
     }
